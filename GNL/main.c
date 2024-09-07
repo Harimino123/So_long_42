@@ -1,4 +1,5 @@
 #include "get_next_line.h"
+#include "../Printf/ft_printf.h"
 
 int main(void) 
 {
@@ -9,7 +10,7 @@ int main(void)
   str = "";
   while (1) {
     str = get_next_line(fd);
-    printf("%s", str);
+    ft_printf("%s", str);
     if (str == NULL)
       break;
     free(str);

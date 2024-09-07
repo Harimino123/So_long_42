@@ -46,7 +46,7 @@ void	set_img(t_game *data)
 	if (!data->img.img_wall || !data->img.img_floor || !data->img.img_exit ||
         !data->img.img_collect || !data->img.img_player)
 	{
-        printf("Error: One or more images failed to load.\n");
+        ft_printf("Error: One or more images failed to load.\n");
         exit(1);
 	}
 }

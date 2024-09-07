@@ -24,17 +24,17 @@ int validate_map(char **map, t_count *content)
 
     if (!is_rectangular(map))
     {
-        printf("Error: Map is not rectangular.\n");
+        ft_printf("Error: Map is not rectangular.\n");
         return (0);
     }
     if (!check_elements(map, content))
     {
-        printf("Error: Map contains invalid elements or incorrect number of elements.\n");
+        ft_printf("Error: Map contains invalid elements or incorrect number of elements.\n");
         return (0);
     }
     if (!check_walls(map))
     {
-        printf("Error: Map is not surrounded by walls.\n");
+        ft_printf("Error: Map is not surrounded by walls.\n");
         return (0);
     }
     return (1);
@@ -47,17 +47,17 @@ char **load_map(char **str, t_game *data)
     fd = 0;
     data->map = NULL;
     if (!check_file_extension(str[1]))
-        return (printf("Invalid map file extension. Expected .ber\n"), NULL);
+        return (ft_printf("Invalid map file extension. Expected .ber\n"), NULL);
     fd = open(str[1], O_RDONLY);
     if (fd < 0)
     {
-        printf("Failed to open file: %s\n", str[1]);
+        ft_printf("Failed to open file: %s\n", str[1]);
         return (NULL);
     }
     data->map = parse_map(fd, data);
     close(fd);
     if (!data->map)
-        return (printf("Error parsing map.\n"), NULL);
+        return (ft_printf("Error parsing map.\n"), NULL);
     if (!validate_map(data->map, &data->content))
         return (NULL);
     return (data->map);

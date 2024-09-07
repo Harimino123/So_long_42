@@ -20,6 +20,7 @@
 #include <string.h>
 #include "GNL/get_next_line.h"
 #include "Libft/libft.h"
+#include "Printf/ft_printf.h"
 #include "./mlx/mlx.h"
 
 # define WIN_HEIGHT 800

@@ -35,7 +35,7 @@ int main(int ac, char **av)
 
     if (ac != 2)
     {
-        printf("Usage %s <path/map_file.ber>\n", av[0]);
+        ft_printf("Usage %s <path/map_file.ber>\n", av[0]);
         return (1);
     }
     data.count = 0;
