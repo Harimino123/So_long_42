@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 13:30:25 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/07 14:15:35 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ void	*ft_free_map(t_game *data);
 void	set_img(t_game *data);
 void render_map(t_game *data);
 void cleanup(t_game *data);
-void set_default_background(t_game *data);
-void render_default_background(t_game *data);
 int ft_height(char **map);
 int ft_width(char **map);
 

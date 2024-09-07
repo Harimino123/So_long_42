@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:49:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 14:08:08 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/07 14:20:11 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,6 @@ void content_set(t_count *content)
     content->p_count = 0;
     content->e_count = 0;
     content->c_count = 0;
-}
-
-void set_default_background(t_game *data)
-{
-    data->img.width = 50;
-    data->img.height = 50;
-    data->img.floor = "img/Grass.xpm";
-    data->img.img_floor = mlx_xpm_file_to_image(data->mlx_ptr, data->img.floor, 
-            &data->img.width, &data->img.height);
-    if (!data->img.img_floor)
-    {
-        printf("Error loading default background image.\n");
-        exit(1);
-    }
 }
 
 void	set_img(t_game *data)
@@ -65,24 +51,6 @@ void	set_img(t_game *data)
 	}
 }
 
-void render_default_background(t_game *data)
-{
-    int x;
-    int y;
-
-    y = 0;
-    while (y < ft_height(data->map))
-    {
-        x = 0;
-        while (x < ft_width(data->map))
-        {
-            mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_floor, x, y);
-            x += data->img.width;
-        }
-        y += data->img.height;
-    }
-}
-
 void render_map(t_game *data)
 {
     int x;
@@ -95,7 +63,7 @@ void render_map(t_game *data)
         while (data->map[y][x])
         {
             mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-                        data->img.img_floor, x * data->img.width, y * data->img.height);
+                    data->img.img_floor, x * data->img.width, y * data->img.height);
             if (data->map[y][x] == '1')
                 mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
                         data->img.img_wall, x * data->img.width, y * data->img.height);
@@ -126,10 +94,7 @@ void cleanup(t_game *data)
     {
         i = 0;
         while (data->map[i])
-        {
-            free(data->map[i]);
-            i++;
-        }
+            free(data->map[i++]);
         free(data->map);
     }
     if (data->img.img_floor)

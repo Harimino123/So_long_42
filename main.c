@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:14:33 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 14:07:21 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/07 14:15:21 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ int main(int ac, char **av)
     if (data.map == NULL)
         return (1);
     data.win_ptr = mlx_new_window(data.mlx_ptr, ft_width(data.map) * 50, ft_height(data.map) * 50, "So_long");
-    set_default_background(&data);
-    render_default_background(&data);
     set_img(&data);
     render_map(&data);
     mlx_key_hook(data.win_ptr, handle_key, &data);
