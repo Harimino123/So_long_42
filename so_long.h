@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/02 20:39:22 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/07 13:30:25 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 #include "GNL/get_next_line.h"
 #include "Libft/libft.h"
 #include "./mlx/mlx.h"
+
+# define WIN_HEIGHT 800
+# define WIN_WIDTH 800
 
 typedef struct img_s
 {
@@ -71,6 +74,7 @@ typedef struct s_game
 void content_set(t_count *content);
 int check_file_extension(const char *filename);
 int check_if_file_exists(const char *filename);
+int check_elements(char **map, t_count *content);
 int is_rectangular(char **map);
 void	ft_check_content(t_game *data);
 int check_walls(char **map);
@@ -80,5 +84,13 @@ char **parse_map(int fd, t_game *data);
 char	*get_map(int fd);
 int	ft_check_line(char *map_line, char wall);
 void	*ft_free_map(t_game *data);
+void	set_img(t_game *data);
+void render_map(t_game *data);
+void cleanup(t_game *data);
+void set_default_background(t_game *data);
+void render_default_background(t_game *data);
+int ft_height(char **map);
+int ft_width(char **map);
+
 
 #endif

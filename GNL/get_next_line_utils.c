@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:12:16 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/08/19 17:15:30 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:21:45 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,16 @@ char *ft_strjoin(const char *dest, const char *src)
         return NULL;
     i = 0;
     while (i < dest_len)
-        result[i++] = dest[i];
+	{
+        result[i] = dest[i];
+		i++;
+	}
     i = 0;
     while (i < src_len)
-        result[dest_len + i++] = src[i];
+	{
+        result[dest_len + i] = src[i];
+		i++;
+	}
     result[total_len] = '\0';
     return result;
 }
