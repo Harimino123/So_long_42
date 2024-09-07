@@ -97,5 +97,6 @@ int ft_height(char **map);
 int ft_width(char **map);
 void move_player(t_game *data, int x_offset, int y_offset);
 int handle_key(int keycode, t_game *data);
+int handle_exit(t_game *data);
 
 #endif

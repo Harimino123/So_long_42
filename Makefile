@@ -15,7 +15,8 @@ SRCS = main.c \
 	load_map.c \
 	ft_parsing_map.c \
 	content_set.c \
-	utils.c
+	utils.c \
+	ft_key_set.c
 
 LIBFT_PATH = Libft
 

@@ -12,6 +12,12 @@
 
 #include "so_long.h"
 
+int handle_exit(t_game *data)
+{
+    cleanup(data);
+    exit(0);
+}
+
 void	*ft_free_map(t_game *data)
 {
 	int		i;
