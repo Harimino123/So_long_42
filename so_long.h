@@ -23,8 +23,13 @@
 #include "Printf/ft_printf.h"
 #include "./mlx/mlx.h"
 
-# define WIN_HEIGHT 800
-# define WIN_WIDTH 800
+
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define ESC_KEY 65307
+
 
 typedef struct img_s
 {
@@ -90,6 +95,7 @@ void render_map(t_game *data);
 void cleanup(t_game *data);
 int ft_height(char **map);
 int ft_width(char **map);
-
+void move_player(t_game *data, int x_offset, int y_offset);
+int handle_key(int keycode, t_game *data);
 
 #endif
