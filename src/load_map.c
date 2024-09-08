@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:48:29 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 13:15:50 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 21:43:15 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void *st_free(char **str)
 char **load_map(char **str, t_game *data)
 {
     int     fd;
+    int total_collectibles = 0;
 
     fd = 0;
     data->map = NULL;
@@ -69,9 +70,14 @@ char **load_map(char **str, t_game *data)
     }
     data->map= parse_map(fd, data);
     close (fd);
+    total_collectibles = count_collectibles(data->map);
     if (!data->map)
         return (ft_printf("Error parsing map.\n"), NULL);
-    if (!validate_map(data->map, &data->content))
+    if (!validate_map(data->map, &(data->content)))
+        return (st_free(data->map));
+    if (!find_player_position(data->map, &data->pos.x, &data->pos.y))
+        return (st_free(data->map));
+    if (!ft_temp(data->map, data->pos.x, data->pos.y, total_collectibles))
         return (st_free(data->map));
     return (data->map);
 }

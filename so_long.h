@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 13:28:23 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 21:35:12 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,8 @@ int handle_exit(t_game *data);
 static void *st_free(char **str);
 int ft_free(char **str);
 void ft_free_map(char **map);
+int ft_temp(char **map, int start_x, int start_y, int total_collectibles);
+int find_player_position(char **map, int *x, int *y);
+int count_collectibles(char **map);
 
 #endif
