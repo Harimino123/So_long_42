@@ -14,14 +14,6 @@
 
 int validate_map(char **map, t_count *content)
 {
-    int width;
-    int height;
-
-    height = 0;
-    while (map[height])
-        height++;
-    width = ft_strlen(map[0]);
-
     if (!is_rectangular(map))
     {
         ft_printf("Error: Map is not rectangular.\n");
@@ -42,8 +34,9 @@ int validate_map(char **map, t_count *content)
 
 static void *st_free(char **str)
 {
-    int i = 0;
+    int i;
 
+    i = 0;
     while (str[i])
         free(str[i++]);
     free(str);
@@ -56,25 +49,22 @@ void *validate_and_init_map(t_game *data, int total_collectibles)
     {
         ft_printf("Error parsing map.\n");
         return (NULL);
-        }
-    if (!data->map)
-        return (ft_printf("Error parsing map.\n"), NULL);
-    if (!validate_map(data->map, &(data->content)))
-        return (st_free(data->map), NULL);
-    if (!find_player_position(data->map, &data->pos.x, &data->pos.y))
-        return (st_free(data->map), NULL);
-    if (!ft_temp(data->map, data->pos.x, data->pos.y, total_collectibles))
-        return (st_free(data->map), NULL);
+    }
+    if (!validate_map(data->map, &(data->content)) ||
+        !find_player_position(data->map, &data->pos.x, &data->pos.y) ||
+        !ft_temp(data->map, data->pos.x, data->pos.y, total_collectibles))
+        return (st_free(data->map));
 }
 
 char **load_map(char **str, t_game *data)
 {
     int     fd;
-    int total_collectibles = 0;
+    int total_collectibles;
 
+    total_collectibles = 0;
     fd = 0;
     data->map = NULL;
-    if (check_file_extension(str[1]) == 0)
+    if (!check_file_extension(str[1]))
     {
         ft_printf("Invalid map file extension. Expected .ber\n");
         return (NULL);
@@ -88,6 +78,7 @@ char **load_map(char **str, t_game *data)
     data->map= parse_map(fd, data);
     close (fd);
     total_collectibles = count_collectibles(data->map);
-    validate_and_init_map(data, total_collectibles);
+    if (validate_and_init_map(data, total_collectibles) == NULL)
+        return (0);
     return (data->map);
 }

@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 08:28:09 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 22:25:58 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 00:01:06 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ char		*ft_strdup(const char *src);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strrchr(const char *str, int c);
 char		*ft_itoa(int n);
+char 		*ft_strcat(char *dest, const char *src);
+char 		*ft_strcpy(char *dest, const char *src);
 int			ft_lstsize(t_list *lst);
 int			ft_memcmp(const void *str1, const void *str2, size_t n);
 int			ft_strncmp(const char *str1, const char *str2, size_t n);

@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:45:44 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 22:25:58 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 00:42:30 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 char *clean_line(char *line)
 {
-    char *ptr = line;
+    char *ptr;
+
+    ptr = line;
     while (*ptr)
     {
         if (*ptr == '\r')
@@ -22,36 +24,42 @@ char *clean_line(char *line)
         else
             ptr++;
     }
-    return line;
+    return (line);
 }
 
-char *get_map(int fd)
+char *read_and_concat_lines(int fd)
 {
     char *line_map;
     char *map_content;
     char *tmp;
-    size_t map_len;
-    size_t line_len;
 
-    map_len = 0;
     map_content = ft_strdup("");
     if (!map_content)
         return (NULL);
     while ((line_map = get_next_line(fd)) != NULL)
     {
-        line_len = ft_strlen(line_map);
         tmp = ft_strjoin(map_content, line_map);
         free(map_content);
         map_content = tmp;
         if (!map_content)
-            return(free(line_map), NULL);
+        {
+            free(line_map);
+            return (NULL);
+        }
         free(line_map);
     }
+    return (map_content);
+}
+
+char *get_map(int fd)
+{
+    char *map_content;
+
+    map_content = read_and_concat_lines(fd);
     if (map_content == NULL)
         return (NULL);
     return (map_content);
 }
-
 
 char **parse_map(int fd, t_game *data)
 {
@@ -72,7 +80,7 @@ char **parse_map(int fd, t_game *data)
         free(temp);
     }
     if (map_content == NULL)
-        return NULL;
+        return (NULL);
     data->map = ft_split(map_content, '\n');
     free(map_content);
     if (!data->map)

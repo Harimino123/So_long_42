@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 21:35:12 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 00:50:03 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,29 +77,29 @@ typedef struct s_game
     int     count;
 } t_game;
 
-void content_set(t_count *content);
-int check_file_extension(const char *filename);
-int check_if_file_exists(const char *filename);
-int check_elements(char **map, t_count *content);
-int is_rectangular(char **map);
-int check_walls(char **map);
-char **load_map(char **str, t_game *data);
-int validate_map(char **map, t_count *content);
-char **parse_map(int fd, t_game *data);
-char	*get_map(int fd);
-void	set_img(t_game *data);
-void render_map(t_game *data);
-void cleanup(t_game *data);
-int ft_height(char **map);
-int ft_width(char **map);
-void move_player(t_game *data, int x_offset, int y_offset);
-int handle_key(int keycode, t_game *data);
-int handle_exit(t_game *data);
 static void *st_free(char **str);
-int ft_free(char **str);
-void ft_free_map(char **map);
-int ft_temp(char **map, int start_x, int start_y, int total_collectibles);
-int find_player_position(char **map, int *x, int *y);
-int count_collectibles(char **map);
+void        content_set(t_count *content);
+void        set_img(t_game *data);
+void        render_map(t_game *data);
+void        cleanup(t_game *data);
+void        move_player(t_game *data, int x_offset, int y_offset);
+void        ft_free_map(char **map);
+char        **load_map(char **str, t_game *data);
+char        **parse_map(int fd, t_game *data);
+char        *get_map(int fd);
+int         ft_height(char **map);
+int         ft_width(char **map);
+int         handle_key(int keycode, t_game *data);
+int         handle_exit(t_game *data);
+int         ft_free(char **str);
+int         ft_temp(char **map, int start_x, int start_y, int total_collectibles);
+int         find_player_position(char **map, int *x, int *y);
+int         count_collectibles(char **map);
+int         check_file_extension(const char *filename);
+int         check_if_file_exists(const char *filename);
+int         check_elements(char **map, t_count *content);
+int         is_rectangular(char **map);
+int         check_walls(char **map);
+int         validate_map(char **map, t_count *content);
 
 #endif

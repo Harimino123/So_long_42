@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:12:16 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 22:25:58 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 00:02:29 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char *ft_strjoin(const char *dest, const char *src)
     size_t dest_len;
     size_t src_len;
     size_t total_len;
-    size_t i;
 
     if (!dest && !src)
         return (NULL);
@@ -37,24 +36,15 @@ char *ft_strjoin(const char *dest, const char *src)
         return (ft_strdup(src));
     if (!src)
         return (ft_strdup(dest));
-    total_len = (dest_len = ft_strlen(dest)) + (src_len = ft_strlen(src));
+    dest_len = ft_strlen(dest);
+    src_len = ft_strlen(src);
+    total_len = dest_len + src_len;
     result = (char *)malloc(total_len + 1);
     if (!result)
-        return NULL;
-    i = 0;
-    while (i < dest_len)
-	{
-        result[i] = dest[i];
-		i++;
-	}
-    i = 0;
-    while (i < src_len)
-	{
-        result[dest_len + i] = src[i];
-		i++;
-	}
-    result[total_len] = '\0';
-    return result;
+        return (NULL);
+    ft_strcpy(result, dest);
+    ft_strcat(result, src);
+    return (result);
 }
 
 char	*ft_strdup(const char *src)
@@ -91,7 +81,7 @@ int	index_of_newline(char *buf)
 	return (-1);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy1(char *dest, char *src)
 {
 	unsigned int	i;
 

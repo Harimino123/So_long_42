@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrasolof <hrasolof@student.42antanana      +#+  +:+       +#+        */
+/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:00:14 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/04/27 12:12:02 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 00:02:17 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char	*get_next_line(int fd)
 	buf[0] = '\0';
 	newline_index = index_of_newline(stock);
 	if (newline_index >= 0)
-		ft_strcpy(buf, &stock[newline_index + 1]);
+		ft_strcpy1(buf, &stock[newline_index + 1]);
 	line = copy_char(stock, index_of_newline(stock));
 	return (line);
 }
