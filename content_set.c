@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:49:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 11:46:15 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:11:00 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,6 @@ void cleanup(t_game *data)
     if (data->win_ptr)
         mlx_destroy_window(data->mlx_ptr, data->win_ptr);
     if (data->mlx_ptr)
-    {
         mlx_destroy_display(data->mlx_ptr);
-        free(data->mlx_ptr);
-    }
+    free(data->mlx_ptr);
 }
