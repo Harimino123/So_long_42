@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrasolof <hrasolof@student.42antanana      +#+  +:+       +#+        */
+/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 09:53:24 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/02/27 10:38:23 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:25:58 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

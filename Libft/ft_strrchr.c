@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrasolof <hrasolof@student.42antanana      +#+  +:+       +#+        */
+/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 08:52:23 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/02/28 09:33:06 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:25:58 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:28 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 13:15:39 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:31:15 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int is_rectangular(char **map)
     i = 1;
     while (map[i])
     {
-        if (ft_strlen(map[i]) != first_line_len)
+        if (!map[i] || ft_strlen(map[i]) != first_line_len)
             return (0);
         i++;
     }

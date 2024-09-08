@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 12:57:02 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 13:15:42 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 16:39:23 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void move_player(t_game *data, int x_offset, int y_offset)
         return ;
     }
     ft_set_pos(data, new_x, new_y);
-    data->count++;
-    ft_printf("Moves: %d\n", data->count);
+    if (!(data->map[new_y][new_x] == 'E'))
+        ft_printf("Moves: %d\n", ++data->count);
     render_map(data);
 }

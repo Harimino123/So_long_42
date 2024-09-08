@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:48:29 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 13:15:50 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:29:03 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,27 @@ static void *st_free(char **str)
     return (NULL);
 }
 
+void *validate_and_init_map(t_game *data, int total_collectibles)
+{
+    if (!data->map)
+    {
+        ft_printf("Error parsing map.\n");
+        return (NULL);
+        }
+    if (!data->map)
+        return (ft_printf("Error parsing map.\n"), NULL);
+    if (!validate_map(data->map, &(data->content)))
+        return (st_free(data->map), NULL);
+    if (!find_player_position(data->map, &data->pos.x, &data->pos.y))
+        return (st_free(data->map), NULL);
+    if (!ft_temp(data->map, data->pos.x, data->pos.y, total_collectibles))
+        return (st_free(data->map), NULL);
+}
+
 char **load_map(char **str, t_game *data)
 {
     int     fd;
+    int total_collectibles = 0;
 
     fd = 0;
     data->map = NULL;
@@ -69,10 +87,7 @@ char **load_map(char **str, t_game *data)
     }
     data->map= parse_map(fd, data);
     close (fd);
-    if (!data->map)
-        return (ft_printf("Error parsing map.\n"), NULL);
-    if (!validate_map(data->map, &data->content))
-        return (st_free(data->map));
+    total_collectibles = count_collectibles(data->map);
+    validate_and_init_map(data, total_collectibles);
     return (data->map);
 }
-
