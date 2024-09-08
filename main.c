@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:14:33 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 11:27:30 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:27:02 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,4 @@ int main(int ac, char **av)
     mlx_loop(data.mlx_ptr);
     cleanup(&data);
 }
-
-
 
