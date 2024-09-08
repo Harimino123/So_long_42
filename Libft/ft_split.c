@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrasolof <hrasolof@student.42antanana      +#+  +:+       +#+        */
+/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:17:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/03/13 13:14:36 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 10:44:23 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

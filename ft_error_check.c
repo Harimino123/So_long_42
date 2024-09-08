@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:28 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 10:26:35 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 11:26:16 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ int check_file_extension(const char *filename)
     const char  *ext;
 
     ext = ft_strrchr(filename, '.');
-    return (ext && strcmp(ext, ".ber") == 0);
+    if (!ext)
+        return (0);
+    if (ft_strcmp(ext, ".ber") != 0)
+        return (0);
+    return (1);
 }
 
 int check_if_file_exists(const char *filename)
@@ -38,10 +42,8 @@ int is_rectangular(char **map)
 
     if (!map || !map[0])
         return (0);
-
     first_line_len = ft_strlen(map[0]);
     i = 1;
-
     while (map[i])
     {
         if (ft_strlen(map[i]) != first_line_len)

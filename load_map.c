@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:48:29 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 13:53:53 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 12:54:25 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,39 @@ int validate_map(char **map, t_count *content)
     return (1);
 }
 
+static void *st_free(char **str)
+{
+    int i = 0;
+
+    while (str[i])
+        free(str[i++]);
+    free(str);
+    return (NULL);
+}
+
 char **load_map(char **str, t_game *data)
 {
     int     fd;
 
     fd = 0;
     data->map = NULL;
-    if (!check_file_extension(str[1]))
-        return (ft_printf("Invalid map file extension. Expected .ber\n"), NULL);
+    if (check_file_extension(str[1]) == 0)
+    {
+        ft_printf("Invalid map file extension. Expected .ber\n");
+        return (NULL);
+    }
     fd = open(str[1], O_RDONLY);
     if (fd < 0)
     {
         ft_printf("Failed to open file: %s\n", str[1]);
         return (NULL);
     }
-    data->map = parse_map(fd, data);
-    close(fd);
+    data->map= parse_map(fd, data);
+    close (fd);
     if (!data->map)
         return (ft_printf("Error parsing map.\n"), NULL);
     if (!validate_map(data->map, &data->content))
-        return (NULL);
+        return (st_free(data->map));
     return (data->map);
 }
 

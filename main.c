@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:14:33 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 14:15:21 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 11:27:30 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int main(int ac, char **av)
         return (1);
     }
     data.count = 0;
-    data.mlx_ptr = mlx_init();
     content_set(&(data.content));
     data.map = load_map(av, &data);
     if (data.map == NULL)
         return (1);
+    data.mlx_ptr = mlx_init();
     data.win_ptr = mlx_new_window(data.mlx_ptr, ft_width(data.map) * 50, ft_height(data.map) * 50, "So_long");
     set_img(&data);
     render_map(&data);
@@ -35,4 +35,6 @@ int main(int ac, char **av)
     mlx_loop(data.mlx_ptr);
     cleanup(&data);
 }
+
+
 

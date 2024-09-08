@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 14:15:35 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 12:05:36 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int validate_map(char **map, t_count *content);
 char **parse_map(int fd, t_game *data);
 char	*get_map(int fd);
 int	ft_check_line(char *map_line, char wall);
-void	*ft_free_map(t_game *data);
 void	set_img(t_game *data);
 void render_map(t_game *data);
 void cleanup(t_game *data);
@@ -98,5 +97,8 @@ int ft_width(char **map);
 void move_player(t_game *data, int x_offset, int y_offset);
 int handle_key(int keycode, t_game *data);
 int handle_exit(t_game *data);
+static void *st_free(char **str);
+int ft_free(char **str);
+void ft_free_map(char **map);
 
 #endif

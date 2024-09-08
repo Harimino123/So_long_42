@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:49:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/07 14:20:11 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 11:46:15 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,29 @@ void	set_img(t_game *data)
 	}
 }
 
+void draw_image_at_position(t_game *data, char map_char, int x, int y)
+{
+    int img_x;
+    int img_y;
+
+    img_x = x * data->img.width;
+    img_y = y * data->img.height;
+    if (map_char == '1')
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_wall, img_x, img_y);
+    else if (map_char == 'P')
+    {
+        data->pos.x = x;
+        data->pos.y = y;
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_player, img_x, img_y);
+    }
+    else if (map_char == 'C')
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_collect, img_x, img_y);
+    else if (map_char == 'E')
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_exit, img_x, img_y);
+    else
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_floor, img_x, img_y);
+}
+
 void render_map(t_game *data)
 {
     int x;
@@ -62,24 +85,7 @@ void render_map(t_game *data)
         x = 0;
         while (data->map[y][x])
         {
-            mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-                    data->img.img_floor, x * data->img.width, y * data->img.height);
-            if (data->map[y][x] == '1')
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-                        data->img.img_wall, x * data->img.width, y * data->img.height);
-            else if (data->map[y][x] == 'P')
-            {
-                data->pos.x = x;
-                data->pos.y = y;
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-                        data->img.img_player, x * data->img.width, y * data->img.height);
-            }
-            else if (data->map[y][x] == 'C')
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-                        data->img.img_collect, x * data->img.width, y * data->img.height);
-            else if (data->map[y][x] == 'E')
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-                        data->img.img_exit, x * data->img.width, y * data->img.height);
+            draw_image_at_position(data, data->map[y][x], x, y);
             x++;
         }
         y++;
@@ -110,6 +116,8 @@ void cleanup(t_game *data)
     if (data->win_ptr)
         mlx_destroy_window(data->mlx_ptr, data->win_ptr);
     if (data->mlx_ptr)
+    {
         mlx_destroy_display(data->mlx_ptr);
         free(data->mlx_ptr);
+    }
 }

@@ -4,7 +4,7 @@ NAME = so_long
 
 FLAGS = -lXext -lX11 -lm
 
-FLAGS_C = -Wall -Werror -Wextra
+FLAGS_C = -Wall -Werror -Wextra -g -O1
 
 RM = rm -rf
 
