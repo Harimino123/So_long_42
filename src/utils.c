@@ -6,11 +6,11 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 13:21:54 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 12:18:54 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:15:53 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int handle_exit(t_game *data)
 {

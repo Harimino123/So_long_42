@@ -6,11 +6,11 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:48:29 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 13:08:31 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:15:50 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int validate_map(char **map, t_count *content)
 {

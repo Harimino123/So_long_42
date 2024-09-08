@@ -6,11 +6,11 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 12:57:02 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 12:57:34 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:15:42 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int handle_key(int keycode, t_game *data)
 {

@@ -6,11 +6,11 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:28 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 11:26:16 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:15:39 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int check_file_extension(const char *filename)
 {

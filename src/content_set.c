@@ -6,11 +6,11 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:49:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 13:11:00 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:15:31 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void content_set(t_count *content)
 {

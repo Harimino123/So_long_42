@@ -6,11 +6,11 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:45:44 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 10:53:04 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 13:15:46 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char *clean_line(char *line)
 {

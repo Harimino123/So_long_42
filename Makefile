@@ -11,12 +11,12 @@ RM = rm -rf
 SRCS = main.c \
 	GNL/get_next_line_utils.c \
 	GNL/get_next_line.c \
-	ft_error_check.c \
-	load_map.c \
-	ft_parsing_map.c \
-	content_set.c \
-	utils.c \
-	ft_key_set.c
+	src/ft_error_check.c \
+	src/load_map.c \
+	src/ft_parsing_map.c \
+	src/content_set.c \
+	src/utils.c \
+	src/ft_key_set.c
 
 LIBFT_PATH = Libft
 
