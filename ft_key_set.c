@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 12:57:02 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 12:57:03 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 12:57:34 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void move_player(t_game *data, int x_offset, int y_offset)
         data->content.c_count--;
         data->map[new_y][new_x] = '0';
     }
-
     if (data->map[new_y][new_x] == 'E')
     {
         if (data->content.c_count == 0)
