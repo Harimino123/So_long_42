@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrasolof <hrasolof@student.42antanana      +#+  +:+       +#+        */
+/*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:28:20 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/03/13 12:55:02 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:25:58 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

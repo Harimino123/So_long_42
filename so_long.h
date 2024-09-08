@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 12:05:36 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/08 21:35:12 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,11 @@ int check_file_extension(const char *filename);
 int check_if_file_exists(const char *filename);
 int check_elements(char **map, t_count *content);
 int is_rectangular(char **map);
-void	ft_check_content(t_game *data);
 int check_walls(char **map);
 char **load_map(char **str, t_game *data);
 int validate_map(char **map, t_count *content);
 char **parse_map(int fd, t_game *data);
 char	*get_map(int fd);
-int	ft_check_line(char *map_line, char wall);
 void	set_img(t_game *data);
 void render_map(t_game *data);
 void cleanup(t_game *data);
@@ -100,5 +98,8 @@ int handle_exit(t_game *data);
 static void *st_free(char **str);
 int ft_free(char **str);
 void ft_free_map(char **map);
+int ft_temp(char **map, int start_x, int start_y, int total_collectibles);
+int find_player_position(char **map, int *x, int *y);
+int count_collectibles(char **map);
 
 #endif
