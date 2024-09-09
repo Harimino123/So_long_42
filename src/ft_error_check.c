@@ -17,9 +17,11 @@ int check_file_extension(const char *filename)
     const char  *ext;
 
     ext = ft_strrchr(filename, '.');
-    if (!ext)
+    if (!ext || ext == filename)
         return (0);
     if (ft_strcmp(ext, ".ber") != 0)
+        return (0);
+    if (ext == filename + ft_strlen(filename) - 4)
         return (0);
     return (1);
 }
