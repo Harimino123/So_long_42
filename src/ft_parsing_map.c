@@ -52,23 +52,37 @@ int	check_n(char *map_content)
 	return (1);
 }
 
-char	**parse_map(int fd, t_game *data)
+char *read_and_proc(int fd)
 {
 	char	*line;
-	char	*map_content;
+	char	*content;
 	char	*temp;
 
-	map_content = NULL;
-	while ((line = get_next_line(fd)) != NULL) // need to modify this part
+	content =  ft_strdup("");
+	if (!content)
+		return (NULL);
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		if (*line == '\0')
-			ft_free_to(line, map_content);
+			ft_free_to(line, content);
 		line = clean_line(line);
-		temp = map_content;
-		map_content = ft_strjoin(map_content, line);
+		temp = content;
+		content = ft_strjoin(content, line);
 		free(temp);
 		free(line);
+		if (!content)
+			return (NULL); 
+		line = get_next_line(fd);
 	}
+	return (content);
+}
+
+char	**parse_map(int fd, t_game *data)
+{
+	char 	*map_content;
+
+	map_content = read_and_proc(fd);
 	if (map_content == NULL)
 		return (NULL);
 	if (check_n(map_content) == 0)
