@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:14:33 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 00:22:47 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 12:30:45 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int ac, char **av)
 {
     t_game  data;
 
+    data.map = NULL;
     if (ac != 2)
     {
         ft_printf("Usage %s <path/map_file.ber>\n", av[0]);

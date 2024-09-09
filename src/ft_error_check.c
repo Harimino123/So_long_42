@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:28 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 00:05:50 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 13:36:46 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int check_file_extension(const char *filename)
     if (!ext || ext == filename)
         return (0);
     if (ft_strcmp(ext, ".ber") != 0)
-        return (0);
-    if (ext == filename + ft_strlen(filename) - 4)
         return (0);
     return (1);
 }

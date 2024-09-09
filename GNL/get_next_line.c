@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:00:14 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 00:02:17 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 13:35:55 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*read_line(int fd, char *buf)
 	if (buf)
 		stock = ft_strdup(buf);
 		if (!stock)
-            return NULL;
+            return (NULL);
 	while (contains_newline(buf) == 0)
 	{
 		bytes_reads = (int)read(fd, buf, BUFFER_SIZE);

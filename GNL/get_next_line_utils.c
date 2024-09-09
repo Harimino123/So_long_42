@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:12:16 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 00:02:29 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 12:59:02 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t ft_strlen(const char *str)
     i = 0;
     while (str[i] != '\0')
         i++;
-    return i;
+    return (i);
 }
 
 char *ft_strjoin(const char *dest, const char *src)

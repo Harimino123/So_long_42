@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:48:29 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 22:29:03 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 12:41:04 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int validate_map(char **map, t_count *content)
     return (1);
 }
 
-static void *st_free(char **str)
+static int st_free(char **str)
 {
     int i;
 
@@ -40,20 +40,21 @@ static void *st_free(char **str)
     while (str[i])
         free(str[i++]);
     free(str);
-    return (NULL);
+    return (0);
 }
 
-void *validate_and_init_map(t_game *data, int total_collectibles)
+int validate_and_init_map(t_game *data, int total_collectibles)
 {
     if (!data->map)
     {
         ft_printf("Error: Parsing map failed || Map invalid or empty.\n");
-        return (NULL);
+        return (0);
     }
     if (!validate_map(data->map, &(data->content)) ||
         !find_player_position(data->map, &data->pos.x, &data->pos.y) ||
         !ft_temp(data->map, data->pos.x, data->pos.y, total_collectibles))
-        return (st_free(data->map));
+        return(st_free(data->map));
+    return (1);
 }
 
 char **load_map(char **str, t_game *data)
@@ -72,13 +73,15 @@ char **load_map(char **str, t_game *data)
     fd = open(str[1], O_RDONLY);
     if (fd < 0)
     {
-        ft_printf("Failed to open file: %s\n", str[1]);
+        ft_printf("Failed to open file: %s. File doesn't exist or wrong path\n",
+        str[1]);
         return (NULL);
     }
     data->map = parse_map(fd, data);
     close (fd);
-    total_collectibles = count_collectibles(data->map);
-    if (validate_and_init_map(data, total_collectibles) == NULL)
+    if (data->map != NULL)
+        total_collectibles = count_collectibles(data->map);
+    if (validate_and_init_map(data, total_collectibles) == 0)
         return (0);
     return (data->map);
 }

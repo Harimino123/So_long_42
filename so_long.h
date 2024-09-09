@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 00:50:03 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 12:13:40 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ typedef struct s_game
     int     count;
 } t_game;
 
-static void *st_free(char **str);
 void        content_set(t_count *content);
 void        set_img(t_game *data);
 void        render_map(t_game *data);

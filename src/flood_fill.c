@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 23:23:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 23:23:19 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 12:25:00 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int count_collectibles(char **map)
 
     i = 0;
     collectible_count = 0;
+    if (!map[i])
+        return (0);
     while (map[i])
     {
         j = 0;

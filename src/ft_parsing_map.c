@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:45:44 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 00:42:30 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/09 14:18:46 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,57 +20,36 @@ char *clean_line(char *line)
     while (*ptr)
     {
         if (*ptr == '\r')
-            ft_memmove(ptr, ptr + 1, ft_strlen(ptr)); // Replace '\r' with '\0' or move characters left to remove it
+            ft_memmove(ptr, ptr + 1, ft_strlen(ptr));
         else
             ptr++;
     }
     return (line);
 }
 
-char *read_and_concat_lines(int fd)
+void *ft_free_to(char *line, char *map_content)
 {
-    char *line_map;
-    char *map_content;
-    char *tmp;
-    int    line_c;
-
-    map_content = ft_strdup("");
-    if (!map_content)
-        return (NULL);
-    line_c = 0;
-    while ((line_map = get_next_line(fd)) != NULL)
-    {
-        line_c++;
-        tmp = ft_strjoin(map_content, line_map);
-        free(map_content);
-        map_content = tmp;
-        if (!map_content)
-        {
-            free(line_map);
-            return (NULL);
-        }
-        free(line_map);
-    }
-    if (line_c == 0)
-    {
-        free(map_content);
-        return (NULL);
-    }
-    return (map_content);
+    free(line);
+    free(map_content);
+    return (NULL);
 }
 
-char *get_map(int fd)
+int check_n(char *map_content)
 {
-    char *map_content;
+    int i;
 
-    map_content = read_and_concat_lines(fd);
-    if (map_content == NULL || *map_content == '\0')
+    i = 0;
+    while (map_content[i])
     {
-        ft_printf("Error : Map is empty or invalid\n");
-        free(map_content);
-        return (NULL);
+        if (map_content[0] == '\n' || (map_content[i] == '\n' && 
+        map_content[i + 1] == '\n'))
+        {
+            free(map_content);
+            return (0);
+        }
+        i++;
     }
-    return (map_content);
+    return (1);
 }
 
 char **parse_map(int fd, t_game *data)
@@ -80,24 +59,19 @@ char **parse_map(int fd, t_game *data)
     char *temp;
 
     map_content = NULL;
-    while ((line = get_next_line(fd)) != NULL)
+    while ((line = get_next_line(fd)) != NULL) //need to modify this part
     {
         if (*line == '\0')
-        {
-            free(line);
-            free(map_content);
-            return (NULL);
-        }
+            ft_free_to(line, map_content);
         line = clean_line(line);
         temp = map_content;
         map_content = ft_strjoin(map_content, line);
         free(temp);
         free(line);
-        temp = map_content;
-        map_content = ft_strjoin(map_content, "\n");
-        free(temp);
     }
     if (map_content == NULL)
+        return (NULL);
+    if (check_n(map_content) == 0)
         return (NULL);
     data->map = ft_split(map_content, '\n');
     free(map_content);
