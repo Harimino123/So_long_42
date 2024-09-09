@@ -73,7 +73,7 @@ char **ft_copy_map(char **map)
     i = 0;
     while (i < height)
     {
-        copy[i] = strdup(map[i]);
+        copy[i] = ft_strdup(map[i]);
         if (!copy[i])
         {
             while (i > 0)
