@@ -66,7 +66,7 @@ char **load_map(char **str, t_game *data)
     data->map = NULL;
     if (!check_file_extension(str[1]))
     {
-        ft_printf("Invalid map file extension. Expected .ber\n");
+        ft_printf("Invalid map file extension or name. Expected <filename>.ber\n");
         return (NULL);
     }
     fd = open(str[1], O_RDONLY);
