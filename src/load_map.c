@@ -47,7 +47,7 @@ void *validate_and_init_map(t_game *data, int total_collectibles)
 {
     if (!data->map)
     {
-        ft_printf("Error parsing map.\n");
+        ft_printf("Error: Parsing map failed || Map invalid or empty.\n");
         return (NULL);
     }
     if (!validate_map(data->map, &(data->content)) ||
