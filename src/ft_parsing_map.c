@@ -82,6 +82,12 @@ char **parse_map(int fd, t_game *data)
     map_content = NULL;
     while ((line = get_next_line(fd)) != NULL)
     {
+        if (*line == '\0')
+        {
+            free(line);
+            free(map_content);
+            return (NULL);
+        }
         line = clean_line(line);
         temp = map_content;
         map_content = ft_strjoin(map_content, line);
