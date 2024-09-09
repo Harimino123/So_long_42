@@ -32,12 +32,15 @@ char *read_and_concat_lines(int fd)
     char *line_map;
     char *map_content;
     char *tmp;
+    int    line_c;
 
     map_content = ft_strdup("");
     if (!map_content)
         return (NULL);
+    line_c = 0;
     while ((line_map = get_next_line(fd)) != NULL)
     {
+        line_c++;
         tmp = ft_strjoin(map_content, line_map);
         free(map_content);
         map_content = tmp;
@@ -48,6 +51,11 @@ char *read_and_concat_lines(int fd)
         }
         free(line_map);
     }
+    if (line_c == 0)
+    {
+        free(map_content);
+        return (NULL);
+    }
     return (map_content);
 }
 
@@ -56,8 +64,12 @@ char *get_map(int fd)
     char *map_content;
 
     map_content = read_and_concat_lines(fd);
-    if (map_content == NULL)
+    if (map_content == NULL || *map_content == '\0')
+    {
+        ft_printf("Error : Map is empty or invalid\n");
+        free(map_content);
         return (NULL);
+    }
     return (map_content);
 }
 
