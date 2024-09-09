@@ -56,8 +56,8 @@ char	*read_line(int fd, char *buf)
 	bytes_reads = 0;
 	if (buf)
 		stock = ft_strdup(buf);
-		if (!stock)
-            return (NULL);
+	if (!stock)
+		return (NULL);
 	while (contains_newline(buf) == 0)
 	{
 		bytes_reads = (int)read(fd, buf, BUFFER_SIZE);
@@ -66,9 +66,9 @@ char	*read_line(int fd, char *buf)
 		buf[bytes_reads] = '\0';
 		temp = ft_strjoin(stock, buf);
 		if (!temp)
-            return (free(stock), NULL);
+			return (free(stock), NULL);
 		free(stock);
-        stock = temp;
+		stock = temp;
 	}
 	if (bytes_reads <= 0 && !stock[0])
 		return (free(stock), NULL);
@@ -77,10 +77,10 @@ char	*read_line(int fd, char *buf)
 
 char	*get_next_line(int fd)
 {
-	char			*line;
-	char			*stock;
-	static char		buf[BUFFER_SIZE + 1];
-	int				newline_index;
+	char		*line;
+	char		*stock;
+	static char	buf[BUFFER_SIZE + 1];
+	int			newline_index;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

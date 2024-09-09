@@ -10,41 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "../so_long.h"
+#include "get_next_line.h"
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while (str[i] != '\0')
-        i++;
-    return (i);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
-char *ft_strjoin(const char *dest, const char *src)
+char	*ft_strjoin(const char *dest, const char *src)
 {
-    char *result;
-    size_t dest_len;
-    size_t src_len;
-    size_t total_len;
+	char	*result;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	total_len;
 
-    if (!dest && !src)
-        return (NULL);
-    if (!dest)
-        return (ft_strdup(src));
-    if (!src)
-        return (ft_strdup(dest));
-    dest_len = ft_strlen(dest);
-    src_len = ft_strlen(src);
-    total_len = dest_len + src_len;
-    result = (char *)malloc(total_len + 1);
-    if (!result)
-        return (NULL);
-    ft_strcpy(result, dest);
-    ft_strcat(result, src);
-    return (result);
+	if (!dest && !src)
+		return (NULL);
+	if (!dest)
+		return (ft_strdup(src));
+	if (!src)
+		return (ft_strdup(dest));
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	total_len = dest_len + src_len;
+	result = (char *)malloc(total_len + 1);
+	if (!result)
+		return (NULL);
+	ft_strcpy(result, dest);
+	ft_strcat(result, src);
+	return (result);
 }
 
 char	*ft_strdup(const char *src)

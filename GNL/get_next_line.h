@@ -14,17 +14,17 @@
 # define GET_NEXT_LINE_H
 
 # include <fcntl.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10000
 # endif
 
 char	*get_next_line(int fd);
-char *ft_strjoin(const char *dest, const char *src);
+char	*ft_strjoin(const char *dest, const char *src);
 char	*ft_strdup(const char *src);
 char	*copy_char(char *str, int index);
 char	*copy_rem_char(char *str, int index);
