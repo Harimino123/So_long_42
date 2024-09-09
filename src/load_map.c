@@ -75,7 +75,7 @@ char **load_map(char **str, t_game *data)
         ft_printf("Failed to open file: %s\n", str[1]);
         return (NULL);
     }
-    data->map= parse_map(fd, data);
+    data->map = parse_map(fd, data);
     close (fd);
     total_collectibles = count_collectibles(data->map);
     if (validate_and_init_map(data, total_collectibles) == NULL)
