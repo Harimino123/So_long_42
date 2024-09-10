@@ -74,6 +74,14 @@ typedef struct s_game
 	int		count;
 }			t_game;
 
+typedef struct s_ff_data
+{
+	char	**map;
+	int		max_x;
+	int		max_y;
+	int		collectibles_left;
+}	t_ff_data;
+
 void		content_set(t_count *content);
 void		set_img(t_game *data);
 void		render_map(t_game *data);
