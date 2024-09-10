@@ -89,7 +89,7 @@ char	**ft_copy_map(char **map)
 	return (copy);
 }
 
-int	flood_fill(t_flood_data *data, int x, int y)
+int	ft_flood_fill(t_ff_data *data, int x, int y)
 {
 	if (x < 0 || y < 0 || x >= data->max_x || y >= data->max_y)
 		return (0);
@@ -104,20 +104,20 @@ int	flood_fill(t_flood_data *data, int x, int y)
 		return (1);
 	if (data->map[y][x] != 'F')
 		data->map[y][x] = 'F';
-	if (flood_fill(data, x + 1, y))
+	if (ft_flood_fill(data, x + 1, y))
 		return (1);
-	if (flood_fill(data, x - 1, y))
+	if (ft_flood_fill(data, x - 1, y))
 		return (1);
-	if (flood_fill(data, x, y + 1))
+	if (ft_flood_fill(data, x, y + 1))
 		return (1);
-	if (flood_fill(data, x, y - 1))
+	if (ft_flood_fill(data, x, y - 1))
 		return (1);
 	return (0);
 }
 
 int	ft_temp(char **map, int start_x, int start_y, int total_collectibles)
 {
-	t_flood_data	data;
+	t_ff_data	data;
 	char		**temp;
 
 	data.max_x = ft_width(map);
@@ -127,9 +127,9 @@ int	ft_temp(char **map, int start_x, int start_y, int total_collectibles)
 	if (!temp)
 		return (0);
 	data.map = temp;
-	if (!flood_fill(&data, start_x, start_y))
+	if (!ft_flood_fill(&data, start_x, start_y))
 	{
-		printf("Error: There is no valid path!\n");
+		printf("Error: No valid path!\n");
 		ft_free_map(temp);
 		return (0);
 	}
