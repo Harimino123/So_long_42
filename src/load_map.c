@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:48:29 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 14:28:47 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 11:29:19 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	st_free(char **str)
 
 int	validate_and_init_map(t_game *data, int total_collectibles)
 {
-	if (!data->map)
+	if (!data->map || !data->map[0])
 	{
 		ft_printf("Error: Parsing map failed || Map invalid or empty.\n");
 		return (0);

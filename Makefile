@@ -17,7 +17,8 @@ SRCS = main.c \
 	src/content_set.c \
 	src/utils.c \
 	src/ft_key_set.c \
-	src/flood_fill.c
+	src/flood_fill.c \
+	src/flood_fill_utils.c
 
 LIBFT_PATH = Libft
 

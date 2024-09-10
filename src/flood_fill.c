@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 23:23:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 14:24:00 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:07:03 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ char	**ft_copy_map(char **map)
 
 int	ft_flood_fill(t_ff_data *data, int x, int y)
 {
+	int	exit_status;
+
 	if (x < 0 || y < 0 || x >= data->max_x || y >= data->max_y)
 		return (0);
 	if (data->map[y][x] == '1' || data->map[y][x] == 'F')
@@ -100,8 +102,9 @@ int	ft_flood_fill(t_ff_data *data, int x, int y)
 		data->collectibles_left--;
 		data->map[y][x] = 'F';
 	}
-	if (data->map[y][x] == 'E' && data->collectibles_left == 0)
-		return (1);
+	exit_status = check_ec(data, x, y);
+	if (exit_status != -1)
+		return (exit_status);
 	if (data->map[y][x] != 'F')
 		data->map[y][x] = 'F';
 	if (ft_flood_fill(data, x + 1, y))

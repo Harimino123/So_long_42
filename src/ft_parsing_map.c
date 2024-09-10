@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:45:44 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 14:18:46 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 10:53:28 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int	check_n(char *map_content)
 	return (1);
 }
 
-char *read_and_proc(int fd)
+char	*read_and_proc(int fd)
 {
 	char	*line;
 	char	*content;
 	char	*temp;
 
-	content =  ft_strdup("");
+	content = ft_strdup("");
 	if (!content)
 		return (NULL);
 	line = get_next_line(fd);
@@ -72,7 +72,7 @@ char *read_and_proc(int fd)
 		free(temp);
 		free(line);
 		if (!content)
-			return (NULL); 
+			return (NULL);
 		line = get_next_line(fd);
 	}
 	return (content);
@@ -80,7 +80,7 @@ char *read_and_proc(int fd)
 
 char	**parse_map(int fd, t_game *data)
 {
-	char 	*map_content;
+	char	*map_content;
 
 	map_content = read_and_proc(fd);
 	if (map_content == NULL)

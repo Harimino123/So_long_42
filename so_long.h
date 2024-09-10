@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 12:13:40 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 11:58:38 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ typedef struct s_ff_data
 	int		max_x;
 	int		max_y;
 	int		collectibles_left;
-}	t_ff_data;
+}			t_ff_data;
 
 void		content_set(t_count *content);
 void		set_img(t_game *data);
@@ -106,5 +106,6 @@ int			check_elements(char **map, t_count *content);
 int			is_rectangular(char **map);
 int			check_walls(char **map);
 int			validate_map(char **map, t_count *content);
+int			check_ec(t_ff_data *data, int x, int y);
 
 #endif
