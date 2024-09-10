@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:39:22 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/10 11:58:38 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:47:28 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ int			is_rectangular(char **map);
 int			check_walls(char **map);
 int			validate_map(char **map, t_count *content);
 int			check_ec(t_ff_data *data, int x, int y);
+char		ft_printerror(char *str);
 
 #endif

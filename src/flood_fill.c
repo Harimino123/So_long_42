@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 23:23:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/10 12:07:03 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:56:45 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int	ft_temp(char **map, int start_x, int start_y, int total_collectibles)
 	data.map = temp;
 	if (!ft_flood_fill(&data, start_x, start_y))
 	{
-		printf("Error: No valid path!\n");
+		ft_printerror("Error\nNo valid path!\n");
 		ft_free_map(temp);
 		return (0);
 	}

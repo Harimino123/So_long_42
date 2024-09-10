@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 20:14:33 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/09 12:30:45 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:53:54 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	data.map = NULL;
 	if (ac != 2)
 	{
-		ft_printf("Usage %s <path/map_file.ber>\n", av[0]);
+		ft_printerror("Error\nUsage ./so_long <path/map_file.ber>\n");
 		return (1);
 	}
 	data.count = 0;

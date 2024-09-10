@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 22:48:29 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/10 11:29:19 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 13:44:18 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ int	validate_map(char **map, t_count *content)
 {
 	if (!is_rectangular(map))
 	{
-		ft_printf("Error: Map is not rectangular.\n");
+		ft_printerror("Error\nMap is not rectangular.\n");
 		return (0);
 	}
 	if (!check_elements(map, content))
 	{
-		ft_printf("Error: Map contains invalid elements");
-		ft_printf(" or incorrect number of elements.\n");
+		ft_printerror("Error\nMap contains invalid elements");
+		ft_printerror(" or incorrect number of elements.\n");
 		return (0);
 	}
 	if (!check_walls(map))
 	{
-		ft_printf("Error: Map is not surrounded by walls.\n");
+		ft_printerror("Error\nMap is not surrounded by walls.\n");
 		return (0);
 	}
 	return (1);
@@ -48,7 +48,8 @@ int	validate_and_init_map(t_game *data, int total_collectibles)
 {
 	if (!data->map || !data->map[0])
 	{
-		ft_printf("Error: Parsing map failed || Map invalid or empty.\n");
+		ft_printerror("Error\nParsing map failed || Map invalid or empty.\n");
+		ft_free(data->map);
 		return (0);
 	}
 	if (!validate_map(data->map, &(data->content))
@@ -68,14 +69,13 @@ char	**load_map(char **str, t_game *data)
 	data->map = NULL;
 	if (!check_file_extension(str[1]))
 	{
-		ft_printf("Error: Invalid map. Expected <filename>.ber\n");
+		ft_printerror("Error\nInvalid map. Expected <filename>.ber\n");
 		return (NULL);
 	}
 	fd = open(str[1], O_RDONLY);
 	if (fd < 0)
 	{
-		ft_printf("Failed to open file: %s. File doesn't exist or wrong path\n",
-			str[1]);
+		ft_printerror("Error\nFile doesn't exist or wrong path\n");
 		return (NULL);
 	}
 	data->map = parse_map(fd, data);

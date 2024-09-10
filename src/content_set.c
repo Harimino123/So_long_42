@@ -6,7 +6,7 @@
 /*   By: hrasolof <hrasolof@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:49:19 by hrasolof          #+#    #+#             */
-/*   Updated: 2024/09/08 16:38:20 by hrasolof         ###   ########.fr       */
+/*   Updated: 2024/09/10 13:01:28 by hrasolof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	set_img(t_game *data)
 	if (!data->img.img_wall || !data->img.img_floor || !data->img.img_exit
 		|| !data->img.img_collect || !data->img.img_player)
 	{
-		ft_printf("Error: One or more images failed to load.\n");
+		ft_printerror("Error\nOne or more images failed to load.\n");
+		cleanup(data);
 		exit(1);
 	}
 }
