@@ -56,7 +56,7 @@ void	move_player(t_game *data, int x_offset, int y_offset)
 	{
 		if (data->content.c_count == 0)
 		{
-			ft_printf("You Win!\n");
+			ft_printf("You Win! Total moves : %d\n", ++data->count);
 			handle_exit(data);
 		}
 		return ;
